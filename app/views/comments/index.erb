@@ -1,0 +1,9 @@
+<h1> Comments on Powder-Puff</h1>
+
+<ul>
+<% @comment.each do |c| %>
+<li>
+	<%= link_to comment.comment_message, comment %>
+</li>
+<% end %>
+</ul>

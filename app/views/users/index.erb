@@ -1,0 +1,9 @@
+<h1> Users on Powder-Puff</h1>
+
+<ul>
+<% @user.each do |u| %>
+<li>
+	<%= link_to user.user_name, user %>
+</li>
+<% end %>
+</ul>
