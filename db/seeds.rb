@@ -23,7 +23,7 @@ listing = [
   {title:"Smith Goggles", description:" Lightly used. Never left in car overnight, no fogging issues", image_url: " ", user_id: 2},
   {title:"Jump Suit", description:"Retro 80's jumpsuit. Size Medium. Great for end of season ski costumes", image_url: " ", user_id: 2},
   {title:"Beacon", description:"Mammut Barryvox S Beacon", image_url: " ", user_id: 1},
-  {title:"Shovel", description:"Black Diamond back country shovel. $20 obo", image_url: "", user_id: 3},
+  {title:"Shovel", description:"Black Diamond back country shovel. $20 O.B.O ", image_url: "", user_id: 3},
   {title:"BC Pack", description:"Airbag never deployed, asking $200 O.B.O ", image_url: "", user_id: 1},
   {title:"XC skis", description:"Rossignol evo cross country skis, 2015 model, size M", image_url: " ", user_id: 2},
   {title:"Poles", description:"Salomon Arctic S3 Ski poles, size 110cm", image_url: " ", user_id: 4}
@@ -49,8 +49,8 @@ cart = [
 	{listing_id: 3, user_id: 2}
 
 user_rating = [
-  {listing_id: 3, user_id: 1},
-  {listing_id: 5, user_id: 2},
-  {listing_id: 2, user_id: 3},
-  {listing_id: 7, user_id: 4},
-	{listing_id: 9, user_id: 5}
+  {user_id: 1, user_id: 5, rating: 7},
+  {user_id: 2, user_id: 4, rating: 8},
+  {user_id: 3, user_id: 2, rating: 9},
+  {user_id: 4, user_id: 1, rating: 4},
+	{user_id: 5, user_id: 3, rating: 6}
