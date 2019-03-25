@@ -49,8 +49,8 @@ cart = [
 	{listing_id: 3, user_id: 2}
 
 user_rating = [
-  {listing_id: 3, user_id: 1},
-  {listing_id: 5, user_id: 2},
-  {listing_id: 2, user_id: 3},
-  {listing_id: 7, user_id: 4},
-	{listing_id: 9, user_id: 5}
+  {user_id: 1, user_id: 5, rating: 7},
+  {user_id: 2, user_id: 4, rating: 8},
+  {user_id: 3, user_id: 2, rating: 9},
+  {user_id: 4, user_id: 1, rating: 4},
+	{user_id: 5, user_id: 3, rating: 6}
