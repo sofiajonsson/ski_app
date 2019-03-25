@@ -47,9 +47,6 @@ cart = [
   {listing_id: 6, user_id: 5},
   {listing_id: 10, user_id: 3},
 	{listing_id: 3, user_id: 2}
-]
-
---------------------------
 
 user_rating = [
   {listing_id: 3, user_id: 1},
@@ -57,4 +54,3 @@ user_rating = [
   {listing_id: 2, user_id: 3},
   {listing_id: 7, user_id: 4},
 	{listing_id: 9, user_id: 5}
-]
