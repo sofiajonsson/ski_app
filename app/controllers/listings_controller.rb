@@ -1,5 +1,9 @@
 class ListingsController < ApplicationController
-before_action :set_listing, only: [:show, :edit, :update, :destroy]
+# before_action :set_listing, only: [:show, :edit, :update, :destroy]
+before_action :require_login
+skip_before_action :require_login, only: [:index]
+#I added the before/skip/method information from the Login Required lab
+#Can totally take out later, just wanted to implement whilst reading
 
   def index
     @listings = Listing.all
@@ -22,6 +26,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
     end
   end
 
+
   def edit
   end
 
@@ -39,11 +44,15 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   private
 
+  def require_login
+  return head(:forbidden) unless session.include? :user_id
+end
+
   def set_listing
     @listing = Listing.find(params[:id])
   end
 
-  def cart_params
+  def listing_params
     params.require(:listing).permit!
   end
 end
