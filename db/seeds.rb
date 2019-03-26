@@ -6,7 +6,7 @@ Comment.destroy_all
 UserRating.destroy_all
 # ------------------------------
 user = [
-  {user_name: "PowHound", rating_id: 5},
+  {user_name: "PowHound"},
   {user_name: "JerryFinder", rating_id: 4},
   {user_name: "ParkRat", rating_id: 2},
   {user_name: "SkiBunni", rating_id: 3},
