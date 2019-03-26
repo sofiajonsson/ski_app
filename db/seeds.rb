@@ -6,11 +6,11 @@ Comment.destroy_all
 UserRating.destroy_all
 # ------------------------------
 user = [
-  {user_name: "PowHound"},
-  {user_name: "JerryFinder", rating_id: 4},
-  {user_name: "ParkRat", rating_id: 2},
-  {user_name: "SkiBunni", rating_id: 3},
-	{user_name: "SkiTheEast", rating_id: 3}
+  {username: "PowHound"},
+  {username: "JerryFinder", rating_id: 4},
+  {username: "ParkRat", rating_id: 2},
+  {username: "SkiBunni", rating_id: 3},
+	{username: "SkiTheEast", rating_id: 3}
 
 ]
 user.each {|user| User.create(user)}
