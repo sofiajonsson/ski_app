@@ -2,6 +2,7 @@ class CartsController < ApplicationController
 before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   def index
+    
   end
 
   def show
