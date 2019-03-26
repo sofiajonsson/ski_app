@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_03_25_233218) do
 
   create_table "listings", force: :cascade do |t|
     t.integer "user_id"
+    t.integer "poster_id"
     t.string "title"
     t.string "description"
     t.string "image_url"
