@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-# before_action :set_listing, only: [:show, :edit, :update, :destroy]
-before_action :require_login
-skip_before_action :require_login, only: [:index]
+before_action :set_listing, only: [:show, :edit, :update, :destroy]
+# before_action :require_login
+# skip_before_action :require_login, only: [:index]
 #I added the before/skip/method information from the Login Required lab
 #Can totally take out later, just wanted to implement whilst reading
 
@@ -10,7 +10,7 @@ skip_before_action :require_login, only: [:index]
   end
 
   def show
-    # @user = User.find(params[:user][:id])
+    @user = User.find(Listing.find(params[:id]).user_id)
   end
 
   def new
@@ -45,8 +45,8 @@ skip_before_action :require_login, only: [:index]
   private
 
   def require_login
-  return head(:forbidden) unless session.include? :user_id
-end
+    return head(:forbidden) unless session.include? :user_id
+  end
 
   def set_listing
     @listing = Listing.find(params[:id])
