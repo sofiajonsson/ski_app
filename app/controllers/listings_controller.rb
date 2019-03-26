@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-# before_action :set_listing, only: [:show, :edit, :update, :destroy]
+before_action :set_listing, only: [:show, :edit, :update, :destroy]
 before_action :require_login
 skip_before_action :require_login, only: [:index]
 #I added the before/skip/method information from the Login Required lab
