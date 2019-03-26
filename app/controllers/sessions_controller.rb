@@ -4,8 +4,8 @@ class SessionsController < ApplicationController
     end
 
     def create
-      if User.find_by(user_name: params[:user_name])
-        user = User.find_by(user_name: params[:user_name])
+      if User.find_by(username: params[:username])
+        user = User.find_by(username: params[:username])
         session[:user_id] = user.id
       else
         flash[:message] = "User not found"
