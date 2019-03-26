@@ -1,12 +1,9 @@
 class ListingsController < ApplicationController
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
+
 # before_action :require_login
 # skip_before_action :require_login, only: [:index]
-=======
-before_action :require_login
-skip_before_action :require_login, only: [:index]
->>>>>>> 79c23ba6f0e786852e4d247ae0b4a1bc0ed0c197
+
 #I added the before/skip/method information from the Login Required lab
 #Can totally take out later, just wanted to implement whilst reading
 

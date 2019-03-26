@@ -4,5 +4,4 @@ class User < ApplicationRecord
   belongs_to :cart, optional: true
 
   validates :username, uniqueness: true
-
 end

@@ -50,8 +50,6 @@ ActiveRecord::Schema.define(version: 2019_03_25_233218) do
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.integer "rating_id"
-    t.string "password"
-    t.string "password_confirmation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
