@@ -1,3 +1,5 @@
-<h1><%= @user %></h1>
-<p> User Name:<%= @user.user_name %></p>
+<h1>Hello <%= @user.user_name %></h1>
+User Name:<%= @user.user_name %>
 <p> User Rating: <%= @user.rating_id %></p>
+<h2>Checkout the Listings?</h2>
+<%= link_to "listings", listings_path %>
