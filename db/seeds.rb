@@ -17,16 +17,16 @@ user.each {|user| User.create(user)}
 # ------------------------------
 
 listing = [
-  {title: "Armada JJs", description: "Men's 186 Armada JJ's. Used for two seasons. Have a lot of life left in them.", image_url: " ", user_id: 1},
-  {title: "Dynafit Boots", description: "Women's Dynafit touring boots. Used once, decided touring wasn't for me", image_url: " ", user_id: 5},
-  {title: "POC helmet", description:"Decided I wanted a different color, never used", image_url: "", user_id: 3},
-  {title: "Smith Goggles", description: "Lightly used. Never left in car overnight, no fogging issues", image_url: " ", user_id: 2},
-  {title: "Jump Suit", description:"Retro 80's jumpsuit. Size Medium. Great for end of season ski costumes", image_url: " ", user_id: 2},
-  {title: "Beacon", description:"Mammut Barryvox S Beacon", image_url: " ", user_id: 1},
-  {title: "Shovel", description:"Black Diamond back country shovel. $20 obo", image_url: " ", user_id: 3},
-  {title: "BC Pack", description:"Airbag never deployed, asking $200 O.B.O ", image_url: " ", user_id: 1},
-  {title: "XC skis", description:"Rossignol evo cross country skis, 2015 model, size M", image_url: " ", user_id: 2},
-  {title: "Poles", description:"Salomon Arctic S3 Ski poles, size 110cm", image_url: " ", user_id: 4}
+  {title: "Armada JJs", description: "Men's 186 Armada JJ's. Used for two seasons. Have a lot of life left in them.", image_url: " ", user_id: 22},
+  {title: "Dynafit Boots", description: "Women's Dynafit touring boots. Used once, decided touring wasn't for me", image_url: " ", user_id: 23},
+  {title: "POC helmet", description:"Decided I wanted a different color, never used", image_url: "", user_id: 24},
+  {title: "Smith Goggles", description: "Lightly used. Never left in car overnight, no fogging issues", image_url: " ", user_id: 25},
+  {title: "Jump Suit", description:"Retro 80's jumpsuit. Size Medium. Great for end of season ski costumes", image_url: " ", user_id: 26},
+  {title: "Beacon", description:"Mammut Barryvox S Beacon", image_url: " ", user_id: 27},
+  {title: "Shovel", description:"Black Diamond back country shovel. $20 obo", image_url: " ", user_id: 27},
+  {title: "BC Pack", description:"Airbag never deployed, asking $200 O.B.O ", image_url: " ", user_id: 26},
+  {title: "XC skis", description:"Rossignol evo cross country skis, 2015 model, size M", image_url: " ", user_id: 25},
+  {title: "Poles", description:"Salomon Arctic S3 Ski poles, size 110cm", image_url: " ", user_id: 24}
 ]
 listing.each {|listing| Listing.create(listing)}
 # -----------------------

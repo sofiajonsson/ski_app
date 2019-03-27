@@ -12,7 +12,9 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @user = User.find(Listing.find(params[:id]).user_id)
+    flash[:user] = User.find(Listing.find(params[:id]).user_id)
+    flash[:listing] = @listing
+    # @cart = Cart.create_or_find_by(@user.id)
   end
 
   def new
@@ -20,7 +22,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = Listing.new({title: params[:listing][:title], description: params[:listing][:description],user_id: session[:user_id]})
     if @listing.save
       redirect_to @listing
     else
@@ -54,7 +56,4 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
     @listing = Listing.find(params[:id])
   end
 
-  def listing_params
-    params.require(:listing).permit!
-  end
 end

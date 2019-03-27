@@ -1,4 +1,5 @@
 class Cart < ApplicationRecord
   has_many :listings
-  has_many :users
+  has_one :user
+
 end
