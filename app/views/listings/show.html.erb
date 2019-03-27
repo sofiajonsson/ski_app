@@ -4,8 +4,8 @@
 <%= form_tag "/add_to_cart" do %>
 <% text_field_tag value = @listing.id %>
 <%= submit_tag "Add to Cart"%>
-<% end %>
+<% end %><br>
 
-<%= link_to "Return to Listings", listings_path %>
+<%= button_to "Return to listings?", listings_path, method: :get %>
 
 <p>Sold by: <%= link_to flash[:user].username, user_path(flash[:user].id) %></p>
