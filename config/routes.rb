@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :add_to_listings
+  resources :add_price_to_listings
+  root to: 'home#index'
+
   resources :comments
   resources :carts
   resources :user_ratings

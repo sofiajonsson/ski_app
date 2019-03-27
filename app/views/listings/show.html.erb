@@ -1,4 +1,7 @@
-<h1><%= @listing.title %></h1>
+<div class="center jumbotron">
+  <h1>Welcome to Slope-Side-Sale!</h1>
+
+<h3><%= @listing.title %></h3>
 <p><%= @listing.description %></p><br>
 
 <%= form_tag "/add_to_cart" do %>
@@ -7,5 +10,8 @@
 <% end %>
 
 <%= link_to "Return to Listings", listings_path %>
+</div>
+
+
 
 <p>Sold by: <%= link_to flash[:user].username, user_path(flash[:user].id) %></p>

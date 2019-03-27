@@ -5,6 +5,5 @@
 <%= f.label :description, "Describe your thing!" %>
 <%= f.text_field :description %>
 <%= f.label :user_id, "Who are you?" %>
-<%= f.collection_select :user_id, User.all, :id, :user_name %>
 <%= f.submit "Make a listing" %>
 <% end %>
