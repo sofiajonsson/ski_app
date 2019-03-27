@@ -1,6 +1,8 @@
 <h1><%= @user.username %>'s cart</h1>
 <ul>
 <% @listings.each do |listing| %>
-<li><%=link_to listing.title, listing_path(listing) %></li>
-</ul>
+<li><%=link_to listing.title, listing_path(listing) %></li><br>
 <%end %>
+</ul>
+<%= button_to "Checkout", "/checkout", method: :get %>
+<%= button_to "Return to listings?", listings_path, method: :get %>

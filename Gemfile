@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
-gem 'bcrypt'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use postgresql as the database for Active Record
@@ -24,12 +23,22 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+<<<<<<< HEAD
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'   
 gem "cancancan"
 gem "nested_form"
 gem 'public_activity'
+=======
+
+#Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.7'
+
+#Use Bootstrap to make things pretty
+gem 'bootstrap', '~> 4.3.1'
+
+>>>>>>> c315b053db251ae6de478769e90e76da6d75f958
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -7,7 +7,7 @@
 <%= form_tag "/add_to_cart" do %>
 <% text_field_tag value = @listing.id %>
 <%= submit_tag "Add to Cart"%>
-<% end %>
+<% end %><br>
 
 <%= link_to "Return to Listings", listings_path %>
 </div>

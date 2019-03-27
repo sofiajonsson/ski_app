@@ -1,30 +1,34 @@
 class CartsController < ApplicationController
-
-  def show
-  end
+before_action :set_user, only: [:users_cart, :checkout]
+before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
 
   def users_cart
-    @user = User.find_by(id: session[:user_id])
-    cart = Cart.all.select{|cart| cart.user_id == session[:user_id]}
-    listing_ids = cart.collect{|cart_item| cart_item.listing_id}
-    @listings = []
-    listing_ids.each do |listing_id|
-      @listings << Listing.find(listing_id)
-    end
+    # listing_ids = cart.collect{|cart_item| cart_item.listing_id}
+    # @listings = []
+    # listing_ids.each do |listing_id|
+    #   @listings << Listing.find(listing_id)
+    # end
   end
 
   def checkout
-    listing = Listing.find(flash[:listing]["id"])
-    Listing.delete(listing.id)
+
   end
 
   def new
-    Cart.create(user_id: session[:user_id],listing_id: (flash[:listing]["id"]))
-    redirect_to listings_path
+    cart = Cart.create(user_id: session[:user_id],listing_id: (flash[:listing]["id"]))
+    if cart.valid?
+      redirect_to listings_path
+    else
+      flash[:message] = "Listing not added. Already in cart"
+      redirect_to listings_path
+    end
   end
 
-  def create
-
+  def clear_cart
+    @listings.each do |listing|
+      Listing.delete(listing.id)
+    end
+    redirect_to listings_path
   end
 
   def edit
@@ -42,10 +46,12 @@ class CartsController < ApplicationController
   private
 
   def set_cart
-    @cart = Cart.find(params[:id])
+    @cart = Cart.all.select{|cart| cart.user_id == session[:user_id]}
+    listing_ids = @cart.collect{|cart_item| cart_item.listing_id}
+    @listings = []
+    listing_ids.each do |listing_id|
+      @listings << Listing.find(listing_id)
+    end
   end
 
-  def cart_params
-    params.require(:cart).permit(:listing_id, :user_id)
-  end
 end
