@@ -1,0 +1,6 @@
+<h1>Hello <%= @user.username %></h1>
+<%= form_tag "/clear_cart" do %>
+<%= text_field_tag "info", "We didnt want your info anyway!" %>
+<%= text_field_tag "other info", "Were not worthy!" %>
+<%= submit_tag "Submit" %>
+<% end %>

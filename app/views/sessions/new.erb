@@ -1,15 +1,19 @@
 <h1>Welcome to Slope-Side-Sales!</h1>
 <% if flash[:message] %>
   <%= form_tag('/login') do %>
-    <%=label_tag :user_name, "Please input your username:" %><br><br>
-    <%= text_field_tag :user_name, nil, placeholder: flash[:message]  %>
-    <%= submit_tag 'Login' %>
-  <% end %><br>
+    <%=label_tag :username, "Please input your username:" %><br>
+    <%= text_field_tag :username, nil, placeholder: flash[:message] %><br>
+    <%= label_tag :password, "Please input your password:"%><br>
+    <%= password_field_tag :password, nil, placeholder: flash[:message] %><br>
+    <%= submit_tag 'Login'%><br>
+  <% end %>
 <% else %>
 <%= form_tag('/login') do %>
-  <%=label_tag :user_name, "Please input your username:" %><br><br>
-  <%= text_field_tag :user_name%>
-  <%= submit_tag 'Login' %>
+  <%=label_tag :username, "Please input your username:" %><br>
+  <%= text_field_tag :username%><br>
+  <%= label_tag :password, "Please input your password:"%><br>
+  <%= password_field_tag :password%><br>
+  <%= submit_tag 'Login' %><br>
   <% end %>
-<% end %><br><br>
+<% end %>
 <%= link_to "Create new user?", new_user_path %>
