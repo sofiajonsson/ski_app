@@ -1,26 +1,26 @@
 <div class="center jumbotron">
-  <h1>Welcome to Slope-Side-Sale!</h1>
-
 <h3><%= @listing.title %></h3>
-<p><%= @listing.description %></p><br>
-
-<%= form_tag "/add_to_cart" do %>
+Description: <br>
+<%= @listing.description %><br>
+<p><%= @listing.price %></p><br>
+<p><%= form_tag "/add_to_cart" do %>
 <% text_field_tag value = @listing.id %>
 <%= submit_tag "Add to Cart"%>
-<% end %><br>
+<% end %></p>
+<p><%= button_to "Return to Listings", listings_path %></p>
 <%= form_tag new_comment_path do %>
-<%= label_tag :message %>
-<%= text_area_tag :message %>
+<%= label_tag :message, "Leave a comment:" %><br>
+<%= text_area_tag :message %><br>
 <%= submit_tag "Submit comment" %>
 <% end %>
-<%= link_to "Return to Listings", listings_path %>
 </div>
+
 <h2>Comments:</h2>
 <ul>
-
-
+<% if flash[:comments] %>
 <% flash[:comments].each do |comment| %>
-<li><%= comment.message %></li>
+<li><%= comment.message %> posted by: <%= comment.user.username %></li>
+  <% end %>
 <% end %>
 </ul>
 

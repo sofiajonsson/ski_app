@@ -15,7 +15,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 			session[:user_id] = user.id
 			redirect_to listings_path
 		else
-			flash[:messages] = user.errors.messages
+# byebug
+			flash[:messages] = user.errors.full_messages
 			redirect_to new_user_path
 		end
 	end
