@@ -2,6 +2,9 @@ class CartsController < ApplicationController
 before_action :set_user, only: [:users_cart, :checkout]
 before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
 
+  def index
+    @listings = Listing.all
+  end 
   def users_cart
     # listing_ids = cart.collect{|cart_item| cart_item.listing_id}
     # @listings = []

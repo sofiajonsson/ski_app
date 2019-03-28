@@ -27,5 +27,6 @@
    <% end %>
   </tbody>
  </table>
+  <%= button_to "Check out Cart", carts_path, {method: :get}%>
  <br>
  <%= button_to "Create new listing?", new_listing_path, method: :get%>
