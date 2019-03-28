@@ -1,9 +1,6 @@
 class ListingsController < ApplicationController
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
-# before_action :require_login
-# skip_before_action :require_login, only: [:index]
-
 
   def index
     @listings = Listing.all
@@ -14,7 +11,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
     flash[:listing] = @listing
     comments = Comment.all.select{|comment| comment[:listing_id] == @listing[:id]}
     flash[:comments] = comments
-    # @cart = Cart.create_or_find_by(@user.id)
+    byebug
   end
 
   def new
@@ -23,11 +20,11 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def create
     @listing = Listing.new({title: params[:listing][:title], description: params[:listing][:description],user_id: session[:user_id]})
-    # @listing.user_id = user.id
     if @listing.save
       redirect_to @listing
     else
-      render :new
+      flash[:messages] = @listing.errors.full_messages
+      redirect_to new_listing_path
     end
   end
 

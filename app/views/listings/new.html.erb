@@ -1,8 +1,19 @@
 <h1>Make a new Listing</h1>
+  <% if flash[:messages] %>
+    <%= "Something isnt quite right." %>
+    <ul>
+
+      <% flash[:messages].each do |message| %>
+      <li><%= message %><br><br></li>
+    <% end %>
+    </ul>
+  <% end %>
 <%= form_for @listing do |f|%>
 <%= f.label :title, "Add a title:" %>
-<%= f.text_field :title %>
+<%= f.text_field :title %><br>
+<%= f.label :price, "How much do you want for it?" %>
+<%= f.number_field :price, class: 'special_input', step: 0.01 %><br>
 <%= f.label :description, "Describe your thing!" %>
-<%= f.text_field :description %>
+<%= f.text_field :description %><br>
 <%= f.submit "Make a listing" %>
 <% end %>

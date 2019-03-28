@@ -9,7 +9,7 @@ before_action :set_user, only: [:create, :update]
 	end
 
 	def create
-		@comment = Comment.new(message: params[:message], user_id: @user.id, listing_id: flash[:listing]["id"])
+		@comment = @user.comments.create(message: params[:message], listing_id: flash[:listing]["id"])
 		if @comment.save
 			redirect_to listing_path(@comment[:listing_id])
 		else
