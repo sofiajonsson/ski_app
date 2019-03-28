@@ -6,7 +6,7 @@ Comment.destroy_all
 UserRating.destroy_all
 # ------------------------------
 user = [
-  {username: "PowHound"},
+  u1= User.create({username: "PowHound"}),
   {username: "JerryFinder", rating_id: 4},
   {username: "ParkRat", rating_id: 2},
   {username: "SkiBunni", rating_id: 3},
@@ -17,7 +17,7 @@ user.each {|user| User.create(user)}
 # ------------------------------
 
 listing = [
-  {title: "Armada JJs", description: "Men's 186 Armada JJ's. Used for two seasons. Have a lot of life left in them.", image_url: "../app/assets/images/.armada.png ", user_id: 22},
+u1.listing  {title: "Armada JJs", description: "Men's 186 Armada JJ's. Used for two seasons. Have a lot of life left in them.", image_url: "../app/assets/images/.armada.png ", user_id: 22},
   {title: "Dynafit Boots", description: "Women's Dynafit touring boots. Used once, decided touring wasn't for me", image_url: " ../app/assets/images/dynafitboots.png", user_id: 23},
   {title: "POC helmet", description:"Decided I wanted a different color, never used", image_url: "../app/assets/images/pochelmet.png", user_id: 24},
   {title: "Smith Goggles", description: "Lightly used. Never left in car overnight, no fogging issues", image_url: "../app/assets/images/goggles.png ", user_id: 25},
