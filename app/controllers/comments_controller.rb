@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-
+before_action :set_user, only: [:create, :update]
 	def index
 		@comments = Comment.all
 	end
@@ -9,16 +9,15 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@comment = Comment.new(comment_params)
+		@comment = Comment.new(message: params[:message], user_id: @user.id, listing_id: flash[:listing]["id"])
 		if @comment.save
-			redirect_to @comment
+			redirect_to listing_path(@comment[:listing_id])
 		else
 			render :new
 		end
 	end
 
 	def show
-		@comment= Comment.find(params[:id])
 	end
 
 	def edit
@@ -36,7 +35,7 @@ class CommentsController < ApplicationController
 
 	private
 
-		def comment_params
-			params.require(:comment).permit!
-		end
+		# def comment_params
+		# 	params.require(:comment).permit!
+		# end
 end

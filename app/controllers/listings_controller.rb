@@ -12,6 +12,8 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   def show
     flash[:user] = User.find(Listing.find(params[:id]).user_id)
     flash[:listing] = @listing
+    comments = Comment.all.select{|comment| comment[:listing_id] == @listing[:id]}
+    flash[:comments] = comments
     # @cart = Cart.create_or_find_by(@user.id)
   end
 
