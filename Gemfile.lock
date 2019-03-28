@@ -134,6 +134,10 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (1.1.4)
+<<<<<<< HEAD
+=======
+    popper_js (1.14.5)
+>>>>>>> d8422eb3ded13ad25b63cac85c6aa7c0b20b0d06
     public_activity (1.6.3)
       actionpack (>= 3.0.0)
       activerecord (>= 3.0)
