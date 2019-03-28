@@ -1,21 +1,23 @@
 <h1>Listings</h1>
-<<<<<<< HEAD
  <table class="table table-striped">
   <thead>
    <tr>
     <th>Title</th>
     <th>Description</th>
-    <!-- <th>Price</th> -->
+    <th>Price</th>
     <th></th>
     <th colspan="3"></th>
    </tr>
   </thead>
   <tbody>
+    <%if flash[:message] %>
+    <td><%= flash[:message] %></td>
+    <% end %>
    <% @listings.each do |listing| %>
     <tr>
      <td><%= listing.title %></td>
      <td><%= listing.description %></td>
-
+     <td><%= listing.price %></td>
      <td><%= link_to 'Show', listing %></td>
      <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
      <td>
@@ -26,15 +28,4 @@
   </tbody>
  </table>
  <br>
- <%= link_to 'New Listing', new_listing_path %>
-=======
-<%if flash[:message] %>
-<%= flash[:message] %>
-<% end %>
-<ul>
-<% @listings.each do |listing| %>
-<li><%=link_to listing.title, listing_path(listing) %></li>
-<% end %>
-</ul>
-<%= button_to "Create new listing", new_listing_path, method: :get%>
->>>>>>> c315b053db251ae6de478769e90e76da6d75f958
+ <%= button_to "Create new listing?", new_listing_path, method: :get%>
