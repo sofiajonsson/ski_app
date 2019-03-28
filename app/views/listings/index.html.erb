@@ -16,7 +16,7 @@
    <% @listings.each do |listing| %>
     <tr>
      <td><%= listing.title %></td>
-     <td><%= listing.description %></td>
+     <td><%= listing.description %> <%= image_tag listing.image_url %></td>
      <td><%= listing.price %></td>
      <td><%= link_to 'Show', listing %></td>
      <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
