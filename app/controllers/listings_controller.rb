@@ -20,8 +20,8 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    @listing = Listing.new({title: params[:listing][:title], description: params[:listing][:description],user_id: session[:user_id]})
-    # @listing.user_id = user.id
+    @listing = Listing.new({title: params[:listing][:title], description: params[:listing][:description], user_id: session[:user_id], image_url: params[:listing][:image_url]})
+    Photo.create(image_url: params[:listing][:image_url])
     if @listing.save
       redirect_to @listing
     else

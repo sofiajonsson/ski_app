@@ -1,5 +1,4 @@
 <h1>Listings</h1>
-<<<<<<< HEAD
  <table class="table table-striped">
   <thead>
    <tr>
@@ -27,14 +26,3 @@
  </table>
  <br>
  <%= link_to 'New Listing', new_listing_path %>
-=======
-<%if flash[:message] %>
-<%= flash[:message] %>
-<% end %>
-<ul>
-<% @listings.each do |listing| %>
-<li><%=link_to listing.title, listing_path(listing) %></li>
-<% end %>
-</ul>
-<%= button_to "Create new listing", new_listing_path, method: :get%>
->>>>>>> c315b053db251ae6de478769e90e76da6d75f958
