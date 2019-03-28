@@ -10,18 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_28_000821) do
+ActiveRecord::Schema.define(version: 2019_03_28_214328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "add_price_to_listings", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "carts", force: :cascade do |t|
-    t.integer "listing_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_03_28_000821) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "price"
+    t.integer "cart_id"
   end
 
   create_table "photos", force: :cascade do |t|
