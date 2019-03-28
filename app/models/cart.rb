@@ -4,4 +4,5 @@ class Cart < ApplicationRecord
 
   accepts_nested_attributes_for :listings, allow_destroy: true
   validates :listing_id, uniqueness: true
+
 end

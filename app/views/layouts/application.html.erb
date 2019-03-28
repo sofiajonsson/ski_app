@@ -3,13 +3,21 @@
   <head>
     <head>
         <title>Slope-Side-Sk</title>
+
         <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
        <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
        <%= csrf_meta_tags %>
       </head>
       <body>
-
-           <%= yield %>
-
-      </body>
-      </html>
+    <!-- Renders navigation file located at app/views/layouts/_navigation.html.erb -->
+    <%= render "layouts/navigation" %>
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+  </body>
+</html>
