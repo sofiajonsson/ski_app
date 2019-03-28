@@ -1,0 +1,19 @@
+<h2>Shopping Cart: </h2>
+<br><br>
+
+<ul>
+  <% @listings.each do |listing| %>
+    <li>
+       <h3>Item(s):</h3>
+			<p><%= listing.title %></p>
+      <br>
+      <h3>Description: </h3>
+		<p>	<%= listing.description %></p>
+    </li>
+    <br>
+  <% end %>
+</ul>
+
+<%= link_to "Continue Shopping", listings_path %>
+
+<%= button_to "Checkout", checkout_path(@carts), {method: :get} %>
