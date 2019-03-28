@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-
+gem 'bootstrap-sass'
 ruby '2.6.1'
+gem "paperclip", "~> 5.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use postgresql as the database for Active Record
@@ -29,6 +30,8 @@ gem 'devise'
 gem "cancancan"
 gem "nested_form"
 gem 'public_activity'
+<<<<<<< HEAD
+=======
 
 #Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -36,6 +39,7 @@ gem 'bcrypt', '~> 3.1.7'
 #Use Bootstrap to make things pretty
 gem 'bootstrap', '~> 4.3.1'
 
+>>>>>>> d8422eb3ded13ad25b63cac85c6aa7c0b20b0d06
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

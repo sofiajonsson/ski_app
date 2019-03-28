@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2019_03_27_221845) do
     t.float "price"
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.integer "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "user_ratings", force: :cascade do |t|
     t.integer "rating"
     t.integer "user_id"
