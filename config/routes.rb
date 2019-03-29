@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :user_ratings
   resources :listings
   resources :users
+  resources :home
 
   get "/login", to: "sessions#new"
   post '/login', to: "sessions#create"
@@ -19,5 +20,9 @@ Rails.application.routes.draw do
   get "/checkout", to: "carts#checkout"
   post "/clear_cart", to: "carts#clear_cart"
   post "/comments/new", to: "comments#create"
+  get "/home", to: "home#index"
+
+  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
