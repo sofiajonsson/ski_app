@@ -7,7 +7,9 @@ Description: <br>
 <% text_field_tag value = @listing.id %>
 <%= submit_tag "Add to Cart"%>
 <% end %></p>
+<% if @listing.user_id == session[:user_id] %>
 <p><%= button_to "Edit your listing", edit_listing_path, {method: :get} %></p>
+<% end %>
 <p><%= button_to "Return to Listings", listings_path, {method: :get} %></p>
 <%= form_tag new_comment_path do %>
 <%= label_tag :message, "Leave a comment:" %><br>

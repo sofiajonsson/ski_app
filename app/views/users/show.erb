@@ -1,6 +1,5 @@
 <h1>User Profile:</h1>
 <p> User Name: <%= @user.username %></p>
-<p> User Rating: <%= @user.rating_id %></p>
 <%= button_to 'Edit Password', edit_user_path, method: :get %>
-<h2>Checkout the Listings?</h2>
-<%= button_to "Return to listings?", listings_path, method: :get %>
+<h2>Return to Listings?</h2>
+<%= button_to "Return to Listings?", listings_path, method: :get %>
