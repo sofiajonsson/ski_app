@@ -34,10 +34,6 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 
   def edit
-    if @listing.user_id == session[:user_id]
-    else
-      flash[:not_your_listing] = "You cannot edit others listings"
-    end
   end
 
   def update

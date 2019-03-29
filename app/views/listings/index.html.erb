@@ -18,11 +18,13 @@
      <td><%= listing.title %></td>
      <td><%= listing.description %> <%= image_tag listing.image_url %></td>
      <td><%= listing.price %></td>
-     <td><%= link_to 'Show', listing %></td>
-     <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+     <td><%= button_to 'Show', listing_path(listing), {method: :get} %></td>
+     <% if listing.user_id == session[:user_id] %>
+     <td><%= button_to 'Edit', edit_listing_path(listing) %></td>
      <td>
-       <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+       <%= button_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
      </td>
+     <% end %>
     </tr>
    <% end %>
   </tbody>
