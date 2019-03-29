@@ -27,6 +27,8 @@
    <% end %>
   </tbody>
  </table>
-  <%= button_to "Check out Cart", cart_path(session[:user_id]), {method: :get}%>
+ <% if Cart.find_by(user_id: session[:user_id]) %>
+ <%= button_to "Check out Cart", cart_path(session[:user_id]), {method: :get}%>
+ <% end %>
  <br>
  <%= button_to "Create new listing?", new_listing_path, method: :get%>

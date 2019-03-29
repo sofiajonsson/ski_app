@@ -18,22 +18,21 @@ before_action :set_user, only: [:users_cart, :checkout]
   end
 
   def new
-    # listing = Listing.find(flash[:listing]["id"])
-    # cart = Cart.find_or_create_by(user_id: session[:user_id])
-    #   cart.listings << listing #adding existing listing to carts list of listings
-    # if cart.valid?
-    #   cart.save
-    #   redirect_to listings_path
-    # else
-    #   flash[:message] = "Listing not added. Already in cart"
-    #   redirect_to listings_path
-    # end
+    listing = Listing.find(flash[:listing]["id"])
+    cart = Cart.find_or_create_by(user_id: session[:user_id])
+      cart.listings << listing #adding existing listing to carts list of listings
+    if cart.valid?
+      cart.save
+      redirect_to listings_path
+    else
+      flash[:message] = "Listing not added. Already in cart"
+      redirect_to listings_path
+    end
   end
 
   def clear_cart
     @listings = Cart.find_by(user_id: session[:user_id]).listings
-    byebug
-    .each do |listing|
+    @listings.each do |listing|
       Listing.delete(listing.id)
     end
     redirect_to listings_path
