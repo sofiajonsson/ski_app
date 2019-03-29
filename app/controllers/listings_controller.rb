@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+skip_before_action :authenticate_user, only: [:index]
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 
@@ -41,7 +42,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-
+    # @listing = Listing.delete
   end
 
   private
