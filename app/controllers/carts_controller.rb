@@ -51,6 +51,14 @@ before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
 
   def destroy
 
+    if @cart = Cart.find_by(user_id: session[:user_id])
+      @cart.delete
+      session.clear
+      redirect_to '/login'
+    else
+      flash[:message] = "Your cart is empty"
+      redirect_to listings_path
+    end
   end
 
   private

@@ -7,11 +7,11 @@ UserRating.destroy_all
 # ------------------------------
 #users:
 puts "Seeding Users..."
-@u1 = User.create(username: "PowHound")
-@u2 = User.create(username: "JerryFinder")
-@u3 = User.create(username: "ParkRat")
-@u4 = User.create(username: "SkiBunni")
-@u5 = User.create(username: "SkiTheEast")
+@u1 = User.create(username: "PowHound", password: "testing", password_confirmation: "testing")
+@u2 = User.create(username: "JerryFinder", password: "testing", password_confirmation: "testing")
+@u3 = User.create(username: "ParkRat", password: "testing", password_confirmation: "testing")
+@u4 = User.create(username: "SkiBunni", password: "testing", password_confirmation: "testing")
+@u5 = User.create(username: "SkiTheEast", password: "testing", password_confirmation: "testing")
 
 
 # user.each |user| User.create(user)
