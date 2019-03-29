@@ -1,6 +1,6 @@
 class Listing < ApplicationRecord
   belongs_to :user
-  belongs_to :cart, optional: true
+  belongs_to :cart
   has_many :comments
   validates :title, presence: true
   validates :title, uniqueness: true
