@@ -37,7 +37,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def update
-    if Listing.new({title: params[:listing][:title], description: params[:listing][:description], user_id: session[:user_id], image_url: params[:listing][:image_url]})
+    if @listing.update(listing_params)
       redirect_to @listing
     else
       redirect_to listings_path
@@ -52,6 +52,10 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def require_login
     return head(:forbidden) unless session.include? :user_id
+  end
+
+  def listing_params
+    params.require(:listing).permit!
   end
 
   def set_listing

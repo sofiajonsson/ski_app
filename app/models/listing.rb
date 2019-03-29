@@ -6,6 +6,6 @@ class Listing < ApplicationRecord
   validates :title, uniqueness: true
   validates_length_of :title, maximum: 30
   validates :description, presence: true
-  validates_length_of :description, within: 30..300
+  validates_length_of :description, within: 0..300
 
 end
