@@ -1,5 +1,7 @@
 <h1> Your Cart:</h1>
-<% @cart.each do |cart| %>
- <%= if cart.listing %>
-<li> probably wont work need to think out how to make work <%= link_to cart.listing.title, listing_path(listing) %></li>
+<% @cart.listings.each do |listing| %>
+
+<li> 
+  <%= link_to listing.title, listing_path(listing) %>
+</li>
 <% end %>
