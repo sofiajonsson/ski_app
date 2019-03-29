@@ -7,8 +7,8 @@ Description: <br>
 <% text_field_tag value = @listing.id %>
 <%= submit_tag "Add to Cart"%>
 <% end %></p>
-
-<p><%= button_to "Return to Listings", listings_path %></p>
+<p><%= button_to "Edit your listing", edit_listing_path, {method: :get} %></p>
+<p><%= button_to "Return to Listings", listings_path, {method: :get} %></p>
 <%= form_tag new_comment_path do %>
 <%= label_tag :message, "Leave a comment:" %><br>
 <%= text_area_tag :message %><br>
@@ -18,9 +18,12 @@ Description: <br>
 
 <h2>Comments:</h2>
 <ul>
-<% if flash[:comments] %>
+<% if flash[:comment_message] %>
+  <%= flash[:comment_message] %>
+<% end %>
+<% if flash[:comments].any? %>
 <% flash[:comments].each do |comment| %>
-<li><%= comment.message %> posted by: <%= comment.user.username %></li>
+<li><h3><%= comment.message %> </h3> comment by: <%= comment.user.username %></li>
   <% end %>
 <% end %>
 </ul>

@@ -13,7 +13,8 @@ before_action :set_user, only: [:create, :update]
 		if @comment.save
 			redirect_to listing_path(@comment[:listing_id])
 		else
-			render :new
+			flash[:comment_message] = "Sorry, Comment not saved."
+			redirect_to listing_path(@comment[:listing_id])
 		end
 	end
 

@@ -24,7 +24,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
         Photo.create(image_url: params[:listing][:image_url])
       else
         if @listing.save
-          redirect_to @listing
+        redirect_to @listing
         else
           flash[:messages] = @listing.errors.full_messages
           redirect_to new_listing_path
@@ -34,13 +34,17 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 
   def edit
+    if @listing.user_id == session[:user_id]
+    else
+      flash[:not_your_listing] = "You cannot edit others listings"
+    end
   end
 
   def update
-    if @listing.update(listing_params)
+    if Listing.new({title: params[:listing][:title], description: params[:listing][:description], user_id: session[:user_id], image_url: params[:listing][:image_url]})
       redirect_to @listing
     else
-      redirect_to :edit
+      redirect_to listings_path
     end
   end
 
