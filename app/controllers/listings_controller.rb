@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+skip_before_action :authenticate_user, only: [:index]
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
 
@@ -11,7 +12,6 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
     flash[:listing] = @listing
     comments = Comment.all.select{|comment| comment[:listing_id] == @listing[:id]}
     flash[:comments] = comments
-    byebug
   end
 
   def new
@@ -19,7 +19,6 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-
     @listing = Listing.new({title: params[:listing][:title], description: params[:listing][:description], user_id: session[:user_id], image_url: params[:listing][:image_url]})
     Photo.create(image_url: params[:listing][:image_url])
     if @listing.save
@@ -43,7 +42,7 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
   end
 
   def destroy
-
+    # @listing = Listing.delete
   end
 
   private

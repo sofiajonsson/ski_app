@@ -10,10 +10,12 @@
       <h3>Description: </h3>
 		<p>	<%= listing.description %></p>
     </li>
+    <%= button_to "Destroy Cart",{ action: "destroy", id: listing.id }, method: :delete, data: {confirm: "Are you sure?"} %>
     <br>
   <% end %>
 </ul>
 
+
 <%= link_to "Continue Shopping", listings_path %>
 
-<%= button_to "Checkout", checkout_path(@carts), {method: :get} %>
+<%= button_to "Checkout", users_cart_path(@cart), {method: :get} %>

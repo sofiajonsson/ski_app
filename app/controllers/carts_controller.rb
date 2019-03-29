@@ -4,7 +4,7 @@ before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
 
   def index
     @listings = Listing.all
-  end 
+  end
   def users_cart
     # listing_ids = cart.collect{|cart_item| cart_item.listing_id}
     # @listings = []
@@ -18,8 +18,11 @@ before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
   end
 
   def new
-    cart = Cart.create(user_id: session[:user_id],listing_id: (flash[:listing]["id"]))
+    listing = Listing.find(flash[:listing]["id"])
+    cart = Cart.find_or_create_by(user_id: session[:user_id])
+      cart.listings << listing #adding existing listing to carts list of listings
     if cart.valid?
+      cart.save
       redirect_to listings_path
     else
       flash[:message] = "Listing not added. Already in cart"
@@ -34,6 +37,10 @@ before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
     redirect_to listings_path
   end
 
+  def show
+    @cart= Cart.find(params[:id])
+  end
+
   def edit
 
   end
@@ -44,6 +51,14 @@ before_action :set_cart, only: [:users_cart, :checkout, :clear_cart]
 
   def destroy
 
+    if @cart = Cart.find_by(user_id: session[:user_id])
+      @cart.delete
+      session.clear
+      redirect_to '/login'
+    else
+      flash[:message] = "Your cart is empty"
+      redirect_to listings_path
+    end
   end
 
   private
