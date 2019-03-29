@@ -20,13 +20,16 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
   def create
     @listing = Listing.new({title: params[:listing][:title], description: params[:listing][:description], user_id: session[:user_id], image_url: params[:listing][:image_url]})
-    Photo.create(image_url: params[:listing][:image_url])
-    if @listing.save
-      redirect_to @listing
-    else
-      flash[:messages] = @listing.errors.full_messages
-      redirect_to new_listing_path
-    end
+      if params[:listing][:image_url]
+        Photo.create(image_url: params[:listing][:image_url])
+      else
+        if @listing.save
+          redirect_to @listing
+        else
+          flash[:messages] = @listing.errors.full_messages
+          redirect_to new_listing_path
+        end
+      end
   end
 
 
