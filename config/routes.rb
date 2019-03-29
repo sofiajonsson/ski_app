@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :users
   get "/login", to: "sessions#new"
   post '/login', to: "sessions#create"
+  get "/home", to: "home#index"
   post "/add_to_cart", to: "carts#new"
    delete '/logout', to: 'sessions#destroy'
   get "/users_cart", to: "carts#users_cart"
